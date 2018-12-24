@@ -1,0 +1,23 @@
+Reference :  https://medium.com/@amsokol.com/tutorial-how-to-develop-go-grpc-microservice-with-http-rest-endpoint-middleware-kubernetes-daebb36a97e9
+
+To compile proto file:
+
+```
+cd $GOPATH/src/github.com/murarisumit/go-grpc-http-rest-microservice-tutorial
+protoc --proto_path=api/proto/v1 --go_out=plugins=grpc:pkg/api/v1 todo-service.proto
+```
+
+To run grpc server : 
+```
+cd $GOPATH/src/github.com/murarisumit/go-grpc-http-rest-microservice-tutorial/cmd/server
+go build .
+./server -grpc-port=9876
+```
+
+To run grpc client: 
+
+```
+cd $GOPATH/src/github.com/murarisumit/go-grpc-http-rest-microservice-tutorial/cmd/client-grpc
+go build .
+./client-grpc -server=localhost:9876
+```
